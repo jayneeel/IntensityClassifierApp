@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class MyTextField extends StatelessWidget {
+class CustomTextField extends StatelessWidget {
   final controller;
   final Function(String value)? onChangeValue;
 
 
-  const MyTextField({
+  const CustomTextField({
     super.key,
     required this.controller, this.onChangeValue,
   });

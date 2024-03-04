@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intensity_classifier_app/presentation/home/controllers/home_controller.dart';
-import 'package:intensity_classifier_app/presentation/home/widgets/my_button.dart';
-import 'package:intensity_classifier_app/presentation/home/widgets/my_textfield.dart';
+import 'package:intensity_classifier_app/presentation/home/widgets/custom_button.dart';
+import 'package:intensity_classifier_app/presentation/home/widgets/custom_textfield.dart';
 
 import '../../../utils/constants/constants.dart';
 
@@ -17,7 +17,6 @@ class HomeScreen extends StatelessWidget {
     void classifyIntensity(double value) {
       String meaning = '';
       String img = '';
-      TextStyle style;
       for (int level in Constants.intensityLevels.keys) {
         if (value <= level) {
           meaning = Constants.intensityLevels[level]?[0] ?? "";
@@ -65,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                       0.6,
                       0.7,
                       0.7,
-                      1
+                      1.2
                     ])),
                 child: SliderTheme(
                   data: SliderThemeData(overlayShape: SliderComponentShape.noOverlay, thumbShape: const RoundSliderThumbShape(elevation: 2)),
@@ -87,11 +86,11 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            MyTextField(
+            CustomTextField(
               controller: valueController,
             ),
             const SizedBox(height: 10),
-            MyButton(onTap: () {
+            CustomButton(onTap: () {
               controller.textValue.value = double.parse(valueController.text);
               classifyIntensity(controller.textValue.value);
             }),
