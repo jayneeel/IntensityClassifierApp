@@ -1,10 +1,10 @@
 class Constants {
-  static const Map<int, String> intensityLevels = {
-    0: 'Dangerous',
-    30: 'Dangerous',
-    40: 'Moderate',
-    60: 'Ideal',
-    70: 'Moderate',
-    120: 'Dangerous',
+  static const Map<int, List<String>> intensityLevels = {
+    0: ['Dangerous' "assets/intensity/dangerous.jpg"],
+    30: ['Dangerous' "assets/intensity/dangerous.jpg"],
+    40: ['Moderate', "assets/intensity/moderate.jpg"],
+    60: ['Ideal', "assets/intensity/ideal.png"],
+    70: ['Moderate', "assets/intensity/moderate.jpg"],
+    120: ['Dangerous', "assets/intensity/dangerous.jpg"],
   };
 }

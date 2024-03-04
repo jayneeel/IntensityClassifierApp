@@ -16,14 +16,17 @@ class HomeScreen extends StatelessWidget {
 
     void classifyIntensity(double value) {
       String meaning = '';
+      String img = '';
       TextStyle style;
       for (int level in Constants.intensityLevels.keys) {
         if (value <= level) {
           meaning = Constants.intensityLevels[level]?[0] ?? "";
+          img = Constants.intensityLevels[level]?[1] ?? "assets/intensity/placeholder.jpg";
           break;
         }
       }
       controller.meaningText.value = meaning;
+      controller.asset.value = img;
     }
 
     return Scaffold(
@@ -35,7 +38,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(""),
+            Obx(() => Image.asset(controller.asset.value, height: 200,)),
             Container(
                 height: 20,
                 width: double.maxFinite,
@@ -73,7 +76,6 @@ class HomeScreen extends StatelessWidget {
                         activeColor: Colors.transparent,
                         inactiveColor: Colors.transparent,
                         value: controller.textValue.value,
-                        label: "100",
                         divisions: 120,
                         onChanged: (v) {},
                       )),
